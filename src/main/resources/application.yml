@@ -1,0 +1,35 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27018
+      database: chatdb
+      port: 27018
+      host: localhost
+
+jpa:
+  properties:
+    hibernate:
+      ogm:
+        datastore:
+          create_database=true:
+server:
+  port: 8081
+      
+security:
+  basic:
+    enable: false
+
+  jwt:
+    uri: /auth/**
+    header: Authorization
+    prefix: Bearer
+    expiration: 86400
+    secret: JwtSecretKey
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: basic
