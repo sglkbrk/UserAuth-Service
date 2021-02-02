@@ -70,11 +70,20 @@ public class UserEndpoint {
     @GetMapping(value = "/users/summary/{username}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> getUserSummary(@PathVariable("username") String username) {
         log.info("retrieving user {}", username);
-
         return  userService
                 .findByUsername(username)
                 .map(user -> ResponseEntity.ok(convertTo(user)))
                 .orElseThrow(() -> new ResourceNotFoundException(username));
+    }
+
+    @GetMapping(value = "/users/id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> getUser(@PathVariable("id") String id) {
+        log.info("retrieving user {}", id);
+
+        return  userService
+                .findById(id)
+                .map(user -> ResponseEntity.ok(convertTo(user)))
+                .orElseThrow(() -> new ResourceNotFoundException(id));
     }
 
     private UserSummary convertTo(User user) {
