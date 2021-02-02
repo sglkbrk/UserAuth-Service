@@ -76,7 +76,7 @@ public class UserEndpoint {
                 .orElseThrow(() -> new ResourceNotFoundException(username));
     }
 
-    @GetMapping(value = "/users/id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/users/{id}}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> getUser(@PathVariable("id") String id) {
         log.info("retrieving user {}", id);
 
