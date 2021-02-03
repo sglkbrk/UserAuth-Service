@@ -72,4 +72,9 @@ public class UserService {
         log.info("retrieving user {}", id);
         return userRepository.findById(id);
     }
+
+    public User getuser(String id) {
+        log.info("retrieving user {}", id);
+        return userRepository.findFirstById (id);
+    }
 }

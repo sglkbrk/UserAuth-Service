@@ -76,14 +76,11 @@ public class UserEndpoint {
                 .orElseThrow(() -> new ResourceNotFoundException(username));
     }
 
-    @GetMapping(value = "/users/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/getUser/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> getUser(@PathVariable("id") String id) {
         log.info("retrieving user {}", id);
 
-        return  userService
-                .findById(id)
-                .map(user -> ResponseEntity.ok(convertTo(user)))
-                .orElseThrow(() -> new ResourceNotFoundException(id));
+        return  ResponseEntity.ok(userService.getuser(id));
     }
 
     private UserSummary convertTo(User user) {
