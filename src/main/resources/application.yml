@@ -5,6 +5,8 @@ spring:
       database: chatdb
       port: 27018
       host: localhost
+      username: chatdbuser
+      password: PSqPrvulabKbQzA6xTHK0kHvssdvgyEQxMkJoK0107CI7nTPVa
 
 jpa:
   properties:
